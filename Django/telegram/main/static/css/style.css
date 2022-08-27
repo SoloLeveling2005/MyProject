@@ -7,3 +7,5 @@ body {
 	height: 100vh;
 	display: flex;
 }
+
+input {outline:none;}

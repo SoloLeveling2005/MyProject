@@ -1,9 +1,57 @@
+{% load static %}
 .menu {
     width: 30%;
     height: 100%;
     border-right: 1px solid #e7e7e7;
+    display: flex;
+    max-width: 515px;
+    min-width: 300px;
 }
 
 .menu .top_menu{
+    width: 100%;
+    height: 50px;
+    /*background-color: grey;*/
+    display: flex;
+    align-items: center;
+}
 
+.menu .resize {
+    width: 2px;
+    height: 100%;
+    cursor: e-resize;
+}
+.menu .button_left_navbar {
+    background-image: url(../img/menu.png);
+    width: 21px;
+    height: 21px;
+    background-size: 100% 100%;
+    margin: 0px 20px;
+}
+.menu .left_navbar {
+    position: absolute;
+    left: -100px;
+}
+
+
+
+.menu .input_find_chat {
+    background-color: #f1f1f1;
+    border: 0px;
+    width: 85%;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 4px;
+    margin-right: 10px;
+    border: 2px solid rgba(255,0,0,0.0);
+    transition: .3s;
+}
+
+.menu .input_find_chat:focus {
+    border: 2px solid #54c3f3;
+}
+
+.menu .chats {
+    width: 100%;
+    height: 50px;
 }
