@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="menu">
+        <div class="add_new_task" onclick="open_new_add()"><img src="{% static 'img/add.png' %}" alt=""></div>
+    </section>
+    <section class="content">
+        {% for i in data %}
+            <div class="task">
+                    <h4 class="title">
+                        <font class="titles_task">Название:</font> {{ i.title }} 
+                    </h4>
+                    <h4 class="description">
+                        <font class="titles_task">Описание:</font> {{ i.description }}
+                    </h4>
+            </div>
+        {% endfor %}
+    </section>
+    <section class="new_add" id="new_add">
+        <div style="display: flex;align-items: center;justify-content: space-between;margin-bottom: 20px;">
+            <h3>Добавить задачу</h3>
+            <img src="{% static 'img/close.png' %}" alt="" onclick="close_new_add()">
+        </div>
+        <form action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            <p class="new_title">Введите название задачи:</p>
+            <input type="text" name="title">
+            <p class="new_description">Введите текст задачи:</p>
+            <textarea type="text" name="description"></textarea>
+            <input type="submit">
+        </form>
+    </section>
+
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>
